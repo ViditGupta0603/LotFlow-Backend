@@ -6,6 +6,13 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const auctionRoutes = require("./routes/auctionRoutes");
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Server is healthy",
+  });
+});
+
 const {
   swaggerUi,
   specs,
@@ -38,8 +45,3 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-app.get("/health", (req, res) => {
-  res.status(200).json({
-    status: "ok",
-  });
-});
