@@ -38,7 +38,8 @@ const registerUser = async (req, res) => {
     console.log(error);
 
     res.status(500).json({
-      message: "Server Error",
+      message: error.message,
+      stack: error.stack,
     });
   }
 };
@@ -77,7 +78,8 @@ const loginUser = async (req, res) => {
     console.log(error);
 
     res.status(500).json({
-      message: "Server Error",
+      message: error.message,
+      stack: error.stack,
     });
   }
 };
@@ -97,7 +99,8 @@ const deleteMyAccount = async (req, res) => {
     console.log(error);
 
     res.status(500).json({
-      message: "Server Error",
+      message: error.message,
+      stack: error.stack,
     });
   }
 };
