@@ -13,7 +13,7 @@ const options = {
 
     servers: [
       {
-        url: "https://lotflow-backend.onrender.com/api-docs",
+        url: "https://lotflow-backend.onrender.com",
       },
     ],
 
