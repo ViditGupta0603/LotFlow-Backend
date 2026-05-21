@@ -6,13 +6,6 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const auctionRoutes = require("./routes/auctionRoutes");
 
-app.get("/health", (req, res) => {
-  res.status(200).json({
-    status: "ok",
-    message: "Server is healthy",
-  });
-});
-
 const {
   swaggerUi,
   specs,
@@ -24,11 +17,19 @@ const {
 } = require("./middleware/errorMiddleware");
 
 const app = express();
+
 app.use(cors());
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("LotFlow Backend Running");
+});
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Server is healthy",
+  });
 });
 
 app.use("/api/auth", authRoutes);
@@ -44,4 +45,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
